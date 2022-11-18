@@ -8,6 +8,7 @@ import friends from "../friends.json";
 import transactions from "../transactions.json";
 import { Container } from "./App.styled";
 
+
 export function App() {
   return (
     <Container>

@@ -6,7 +6,7 @@ flex-direction: column;
 align-items: center;
 width: 302px;
 margin-bottom: 50px;
-background-color: #fff;
+background-color: #e2e2e2;
 `
 
 export const Avatar = styled.img`
@@ -47,5 +47,5 @@ font-weight: 800;
 `
 
 export const UserInfo = styled.p`
-color: #7d7d7d;
+color: #292d35;
 `

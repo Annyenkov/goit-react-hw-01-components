@@ -13,7 +13,7 @@ export const Statistic = ({
   )
 }
 
-Statistic.prototype = {
+Statistic.propTypes = {
   label: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
 }

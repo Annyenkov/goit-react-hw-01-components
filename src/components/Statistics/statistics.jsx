@@ -1,6 +1,6 @@
 import React from "react";
-import { Statistic } from "./statistic"
-import { List, Section } from './statistic.styled'
+import PropTypes from "prop-types";
+import { List, Section, Item, Percentage } from './Statistic.styled'
 
 
 export function Statistics({ items }) {
@@ -8,14 +8,21 @@ export function Statistics({ items }) {
     <Section>
       <h2>Upload stats</h2>
       <List>
-        {items.map(item => (
-          <Statistic
-            key={item.id}
-            label={item.label}
-            percentage={item.percentage}
-          />
+        {items.map(({id, label, percentage}) => (
+          <Item bg={label} key={id}>
+            <span>{label}</span>
+            <Percentage>{percentage}%</Percentage>
+          </Item>
         ))}
       </List>
     </Section>
   )
+}
+
+Statistics.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),),
 }

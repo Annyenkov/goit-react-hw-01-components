@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Item, Indicator, Avatar } from "./friendList.styled";
+import { Indicator, Avatar } from "./FriendList.styled";
 
 export const FriendListItem = ({
   avatar,
@@ -7,11 +7,11 @@ export const FriendListItem = ({
   isOnline,
 }) => {
   return (
-    <Item>
+    <>
       <Indicator bg={isOnline} ></Indicator>
       <Avatar src={avatar} alt="User avatar" width="48" />
       <p>{name}</p>
-    </Item>
+    </>
   )
 }
 

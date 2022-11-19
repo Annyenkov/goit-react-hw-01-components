@@ -1,6 +1,6 @@
 import React from "react";
-import { Transaction } from "./transactions";
-import { Title, Container } from './transaction.styled'
+import PropTypes from "prop-types";
+import { Title, Container, Item,Line } from './Transaction.styled'
 
 export function TransactionHistory({items}) {
   return (
@@ -14,15 +14,19 @@ export function TransactionHistory({items}) {
   </thead>
 
   <tbody>
-        {items.map(item => (
-          <Transaction
-            key={item.id}
-            type={item.type}
-            amount={item.amount}
-            currency={item.currency}
-          />
+        {items.map(({id, type, amount, currency}) => (
+          <Line key={id}>
+            <Item>{ type }</Item>
+            <Item>{ amount }</Item>
+            <Item>{ currency }</Item>
+          </Line>
         ))}
   </tbody>
 </Container>
   )
+}
+
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired,),),
 }

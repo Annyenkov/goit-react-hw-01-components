@@ -6,7 +6,7 @@ export const Profile = ({
   tag,
   location,
   avatar,
-  stats,
+  stats: {followers, views, likes},
 }) => {
   return (
     <Card>
@@ -23,15 +23,15 @@ export const Profile = ({
   <CardStat>
     <CardStatItem>
       <span>Followers</span>
-          <span>{ stats.followers }</span>
+          <span>{ followers }</span>
     </CardStatItem>
     <CardStatItem>
       <span>Views</span>
-          <span>{ stats.views }</span>
+          <span>{ views }</span>
     </CardStatItem>
     <CardStatItem>
       <span>Likes</span>
-          <span>{ stats.likes }</span>
+          <span>{ likes }</span>
     </CardStatItem>
   </CardStat>
 </Card>
@@ -43,5 +43,9 @@ Profile.propTypes = {
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  stats: PropTypes.shape(PropTypes.number.isRequired,),
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { List, Section, Item, Percentage } from './Statistic.styled'
+import { List, Section, Item, Percentage } from './Statistics.styled'
 
 
-export function Statistics({ items }) {
+export function Statistics({ items, title }) {
   return (
     <Section>
-      <h2>Upload stats</h2>
+      <h2>{ title }</h2>
       <List>
         {items.map(({id, label, percentage}) => (
           <Item bg={label} key={id}>

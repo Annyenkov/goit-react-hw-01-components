@@ -6,7 +6,7 @@ import { List, Section, Item, Percentage } from './Statistics.styled'
 export function Statistics({ items, title }) {
   return (
     <Section>
-      <h2>{ title }</h2>
+      {title && <h2>{ title }</h2>}
       <List>
         {items.map(({id, label, percentage}) => (
           <Item bg={label} key={id}>
@@ -20,6 +20,7 @@ export function Statistics({ items, title }) {
 }
 
 Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
